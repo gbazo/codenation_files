@@ -78,7 +78,7 @@ Desfazer mudanças
 
 ##################### Trabalhando remoto (GitHub)
 
-Na conta do Github é necessário gerar uma nova SSH Key
+Na conta do Github é necessário gerar uma nova SSH Key (fazer com sudo su)
 > ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
 As chaves ficam na pasta ssh
