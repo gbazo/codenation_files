@@ -1,0 +1,154 @@
+Curso Git Udemy
+
+######################### Configurações iniciais
+
+Configurar o nome
+
+> git config --global user.name "Gabriel Bazo"
+
+Configurar email
+
+> git config --global user.email "bazot3@hotmail.com"
+
+Configurar editor principal (visual code)
+
+> git config --global core.editor "code --wait"
+
+Testa as alterações
+
+> git config --global -e
+
+Mostra os valores no terminal
+
+> git config user.name
+> git config user.email
+> git config --list
+
+###################### Comandos essenciais (trabalho local)
+
+Criar uma pasta para o projeto
+> mkdir git-course
+> cd git-course (vai para o diretório)
+> cd .. (volta para o anterior)
+
+Inicializar o repositório no git
+> git init
+
+Comandos vi
+> vi nomeArquivo.md (cria um arquivo e abre o editor no terminal)
+> i -> insert
+> esc (sai insert)
+> :wq (fecha e salva)
+
+Ciclo de vida dos status dos arquivos
+> untracked - add the file
+> unmodified - edit the file
+> modified - stage the file
+> staged - commit
+
+> git status (verifica a situação)
+> git add nomeArquivo (adiciona arquivo para ser monitorado e já deixa pronto para commit)
+> git add -A (adiciona todos os arquivos com modificação)
+
+Se o arquivo for editad é necessário dar git add novamente
+
+Para fazer o commit:
+> git commit -m "add Readme.md" (faz o commit com uma observação)
+> git commit -am "mensagem" (faz commit direto sem fazer add (a))
+
+Ver histório de alterações
+> git log
+> git log --author="Nome"
+> git shortlog (resumo por autor)
+> git shortlog -sn (mostra o n de commits por autor)
+> git log --graph
+> git show códigoHASH (mostra os detalhes do commit)
+
+Ver mudança antes de commitar
+> git diff
+> git diff --name-only (mostra somente os arquivos modificados)
+
+Desfazer mudanças
+> git checkout NomeArquivo (desfaz alterações, volta para a versão anterior antes de dar git add)
+> git reset HEAD NomeArquivo (desfaz em arquivos que já passaram pelo add, só falta commitar)
+
+> git reset --soft HASH (volta e deixa em staged)
+> git reset --mixed HASH (volta e deixa em modified) 
+> git reset --hard HASH (volta tudo, use com cuidado)
+
+##################### Trabalhando remoto (GitHub)
+
+Na conta do Github é necessário gerar uma nova SSH Key
+> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+As chaves ficam na pasta ssh
+> cd ~/.ssh/
+
+Para ver a chave gerada
+> more id_rsa.pub
+
+Copia e cola no GitHub > Settings > SSH
+
+Para ligar um repositório remoto no que já existe local
+> git remote add origin git@github.com:gbazo/github-course.git
+> git push -u origin master (envia tudo para o Github)
+
+Enviar mudanças (commit)
+> git push origin master
+
+Clonar um repo (Github to local)
+> git clone git@github.com:gbazo/github-course.git github-courser-clone
+
+###################### Ramificação (Branch)
+
+Definição: Ponteiro móvel que leva a um commit
+
+Criar um novo branch
+> git checkout -b testing (cria e troca de branch)
+> git branch (mostra os branchs existentes)
+
+Navegar entre branchs
+> git checkout NomeBranch
+
+Deletar branch
+> git branch -D NomeBranch
+
+Passar as modificações para o branch principal
+> git merge NomeBranch
+> git rebase NomeBranch
+
+######################## Funções extras
+
+Criando arquivo .gitignore (serve para ignorar alguns arquivos)
+> vi .gitignore (dentro dele passa os arquivos que não subir, nome do arquivo ou extensão (*.json))
+
+criar um status temporario para editar mais tarde
+> git stash
+> git stash apply (aplica as mudanças que estavam guardadas)
+> git stash list (mostra todos os stashs salvos)
+> git stash clear (limpa tudo)
+
+Criando atalhos para os comandos
+> git config --global alias.s status
+
+Criar tags com versões
+> git tag -a 1.0.0 -m "Observações"
+> git push origin master --tags (sob as tags pra branch master)
+> git tag (mostra as tags existentes)
+
+Reverter um commit que deu problema
+> git revert HASH (volta pra versão anterior mas sem apagar o log do commit problematico, assim permite corrigir o erro e dar um novo commit depois)
+
+Apagar tags e branchs remotos
+> git push origin :1.0.0 (apaga a tag)
+> git push origin :test (apaga o branch)
+
+
+
+
+
+
+
+
+
+

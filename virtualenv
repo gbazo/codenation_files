@@ -1,0 +1,29 @@
+### Comandos Virtualenvv 
+
+Criar um ambiente virtual - abrir o terminal na pasta desejada
+
+> virtualenv venv
+
+Para verificar qual python estou usando
+
+> which python (após isso já é possivel instalar tudo no amb virtual)
+
+Ativar o ambiente virtual
+
+> source venv/bin/activate ou . venv/bin/...
+
+Desativar
+
+> deactivate
+
+Ver pacotes instalados
+
+> pip freeze
+
+Para criar o requeriments.txt
+
+> pip freeze > requeriments.txt
+> bat requeriments.txt (mostra o conteudi no temrinal)
+> pip install -r requeriments.txt (para instalar)
+
+
