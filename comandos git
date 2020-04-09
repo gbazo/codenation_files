@@ -89,6 +89,9 @@ Para ver a chave gerada
 
 Copia e cola no GitHub > Settings > SSH
 
+Para testar a conexão
+> ssh -T git@github.com
+
 Para ligar um repositório remoto no que já existe local
 > git remote add origin git@github.com:gbazo/github-course.git
 > git push -u origin master (envia tudo para o Github)
